@@ -15,17 +15,19 @@ object TaskWorker {
 
     var taskModule: LocalTaskModule = Injector.localStore.taskModule
 
-    fun editTask(taskId: Int, taskModel: TaskModel) {
+    fun addTask(taskModel: TaskModel) {
 
-        var id = 0
-        if (taskId == -1) {
-            id = taskModule.getMaxId() + 1
-            taskModel.title = taskModel.title + " " + id
-        } else {
-            id = taskId
-        }
-
+        val id = taskModule.getMaxId() + 1
         taskModel.id = id
+        taskModel.title = taskModel.title + " " + id
+
+        taskModule.addOrUpdateTask(taskModel)
+
+    }
+
+    fun updateTask(taskId: Int, taskModel: TaskModel) {
+
+        taskModel.id = taskId
 
         taskModule.addOrUpdateTask(taskModel)
 

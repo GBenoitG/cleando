@@ -11,10 +11,9 @@ class TaskInteractor : TaskContract.Interactor() {
 
     override fun addTask(request: TaskContract.Task.Request) {
 
-        val taskId = request.taskId
         val task = request.taskModel
 
-        TaskWorker.editTask(taskId, task)
+        TaskWorker.addTask(task)
 
         getTasks(TaskContract.Task.Request(TaskContract.Select.ALL))
 

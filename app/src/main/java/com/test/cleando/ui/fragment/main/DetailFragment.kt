@@ -111,7 +111,7 @@ class DetailFragment : BaseFragment(), DetailContract.Controller, View.OnFocusCh
 
     private fun setOptionButton(itemId: Int, title: String, drawableRes: Int) {
         val item = menu.findItem(itemId)
-        item.icon = Injector.resources.getDrawable(drawableRes)
+        item.icon = resources.getDrawable(drawableRes)
         item.title = title
     }
 

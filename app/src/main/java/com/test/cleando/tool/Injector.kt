@@ -1,9 +1,8 @@
 package com.test.cleando.tool
 
 import android.content.Context
-import android.content.res.Resources
-import com.test.cleando.App
 import com.test.cleando.worker.store.local.LocalStore
+import com.test.cleando.worker.store.local.realm.DummyLocalStore
 import com.test.cleando.worker.store.local.realm.RealmLocalStore
 
 /**
@@ -13,17 +12,19 @@ object Injector {
 
     lateinit var context: Context
 
-    lateinit var resources: Resources
-
     lateinit var localStore: LocalStore
 
-    fun configure(app: App) {
+    fun configure(c: Context) {
 
-        context = app
+        context = c
 
-        resources = context.resources
+        localStore = when (Constants.ENV) {
 
-        localStore = RealmLocalStore()
+            Constants.Environment.DEV -> RealmLocalStore()
+
+            Constants.Environment.FIXTURES -> DummyLocalStore()
+
+        }
     }
 
 }

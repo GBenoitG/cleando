@@ -27,8 +27,7 @@ class TaskContract {
 
             lateinit var taskModel: TaskModel
 
-            constructor(taskId: Int = -1, taskModel: TaskModel) {
-                this.taskId = taskId
+            constructor(taskModel: TaskModel) {
                 this.taskModel = taskModel
             }
         }
@@ -61,7 +60,7 @@ class TaskContract {
     interface Controller : BaseController {
 
         fun showTasks(tasks: List<Task.ViewModel>)
-        fun showErrorNoData(error: String)
+        fun showErrorNoData(errorRes: Int)
 
     }
 

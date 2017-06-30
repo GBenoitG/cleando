@@ -10,13 +10,11 @@ import io.realm.Realm
 /**
  * Created by Benoit on 21/06/2017.
  */
-class RealmLocalStore(var context: Context = Injector.context): LocalStore(/*context*/) {
+class DummyLocalStore: LocalStore() {
 
     init {
 
-        Realm.init(context)
-
-        taskModule = RealmLocalTaskModule()
+        taskModule = DummyLocalTaskModule()
 
     }
 

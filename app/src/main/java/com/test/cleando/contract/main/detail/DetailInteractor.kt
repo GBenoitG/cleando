@@ -20,7 +20,7 @@ class DetailInteractor : DetailContract.Interactor() {
 
         val task = request.task
 
-        TaskWorker.editTask(task.id, task)
+        TaskWorker.updateTask(task.id, task)
 
         getTask(DetailContract.Task.Request(task.id))
 

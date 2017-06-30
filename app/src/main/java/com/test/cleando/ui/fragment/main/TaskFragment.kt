@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_tasks.*
 /**
  * Created by Benoit on 20/06/2017.
  */
-class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDelegate {
+open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDelegate {
 
     lateinit var output: TaskContract.Interactor
     lateinit var parentRouter: MainContract.Router
@@ -70,7 +70,7 @@ class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDelegat
 
         var task = TaskModel(0, "Title", "", Status.OPEN)
 
-        output.addTask(TaskContract.Task.Request(-1, task))
+        output.addTask(TaskContract.Task.Request(task))
 
     }
 
@@ -82,13 +82,13 @@ class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDelegat
 
     }
 
-    override fun showErrorNoData(error: String) {
+    override fun showErrorNoData(errorRes: Int) {
 
         listView.visibility = View.GONE
 
         errorLayout.visibility = View.VISIBLE
 
-        textError.text = error
+        textError.text = resources.getText(errorRes)
 
     }
 
