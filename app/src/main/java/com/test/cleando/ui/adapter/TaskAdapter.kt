@@ -11,6 +11,10 @@ import com.test.cleando.ui.adapter.viewholder.TaskViewHolder
 class TaskAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var data = arrayListOf<TaskContract.Task.ViewModel>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     var taskAdapterDelegate: TaskAdapterDelegate? = null
 

@@ -50,8 +50,8 @@ class RealmLocalTaskModule : LocalTaskModule {
     private fun TaskModel.toRealm(): RealmTask {
         var realmTask = RealmTask()
 
-        realmTask.id = id
-        realmTask.name = title
+        realmTask.id = if (id == -1) getMaxId() + 1 else id
+        realmTask.title = title
         realmTask.description = description
         realmTask.isDone = when (status) {
             Status.OPEN -> false
@@ -65,7 +65,7 @@ class RealmLocalTaskModule : LocalTaskModule {
 
         var model = TaskModel(
                 id,
-                name,
+                title,
                 description,
                 if (isDone) Status.CLOSE else Status.OPEN)
 
@@ -78,7 +78,7 @@ class RealmLocalTaskModule : LocalTaskModule {
 
         forEach {
             models.add(TaskModel(id = it.id,
-                    title = it.name,
+                    title = it.title,
                     description = it.description,
                     status = if(it.isDone) Status.CLOSE
                              else Status.OPEN)

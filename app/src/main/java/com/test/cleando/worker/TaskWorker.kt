@@ -17,10 +17,6 @@ object TaskWorker {
 
     fun addTask(taskModel: TaskModel) {
 
-        val id = taskModule.getMaxId() + 1
-        taskModel.id = id
-        taskModel.title = taskModel.title + " " + id
-
         taskModule.addOrUpdateTask(taskModel)
 
     }

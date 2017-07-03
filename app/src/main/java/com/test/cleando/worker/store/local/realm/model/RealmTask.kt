@@ -20,7 +20,7 @@ open class RealmTask : RealmObject() {
     @PrimaryKey
     var id: Int = 0
 
-    var name: String = ""
+    var title: String = ""
     var description: String = ""
     @Index
     var isDone: Boolean = false
