@@ -22,7 +22,7 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
-    fun getCurrentFragment(containerId: Int): BaseFragment? {
+    protected fun getCurrentFragment(containerId: Int): BaseFragment? {
 
         val currentFragment = supportFragmentManager.findFragmentById(containerId)
 

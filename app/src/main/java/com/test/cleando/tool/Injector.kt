@@ -18,11 +18,11 @@ object Injector {
 
         context = c
 
-        localStore = when (Constants.ENV) {
+        when (Constants.ENV) {
 
-            Constants.Environment.DEV -> RealmLocalStore()
+            Constants.Environment.DEV -> localStore = RealmLocalStore()
 
-            Constants.Environment.FIXTURES -> DummyLocalStore()
+            Constants.Environment.FIXTURES -> localStore = DummyLocalStore()
 
         }
     }

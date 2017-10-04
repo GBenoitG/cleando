@@ -68,7 +68,7 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
 
     private fun generateTask() {
 
-        var task = TaskModel(0, "Title", "", Status.OPEN)
+        var task = TaskModel("Title", "", Status.OPEN)
 
         output.addTask(TaskContract.Task.Request(task))
 
