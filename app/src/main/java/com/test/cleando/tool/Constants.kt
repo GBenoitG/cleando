@@ -5,7 +5,7 @@ package com.test.cleando.tool
  */
 object Constants {
 
-    val ENV: Environment = Environment.DEV
+    val ENV: Environment = Environment.FIXTURES
 
     enum class Environment {
         DEV, FIXTURES

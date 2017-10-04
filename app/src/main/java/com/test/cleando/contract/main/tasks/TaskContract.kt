@@ -32,7 +32,7 @@ class TaskContract {
             }
         }
 
-        class Response(var tasks: List<TaskModel>)
+        class Response(val tasks: List<TaskModel>)
 
         class ViewModel(val id: Int,
                         val name: String,
