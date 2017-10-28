@@ -8,23 +8,11 @@ import com.test.cleando.ui.activity.MainActivity
 
 class MainContract {
 
-    abstract class Interactor : BaseInteractor<Presenter>() {
+    interface Navigation {
 
-    }
+        fun goToDetail(taskId: Int)
+        fun goToList()
 
-    abstract class Presenter : BasePresenter<Controller>() {
-
-    }
-
-    interface Controller : BaseController {
-
-    }
-
-    abstract class Router : BaseRouter<MainActivity>() {
-
-        abstract fun goToDetail(taskId: Int)
-
-        abstract fun goToList()
     }
 
 }
