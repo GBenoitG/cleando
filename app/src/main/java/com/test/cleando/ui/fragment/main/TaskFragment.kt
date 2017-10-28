@@ -20,9 +20,21 @@ import kotlinx.android.synthetic.main.fragment_tasks.*
 open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDelegate {
 
     lateinit var output: TaskContract.Interactor
-    lateinit var parentRouter: MainContract.Router
+    lateinit var parentNavigator: MainContract.Navigation
 
     private var taskAdater = TaskAdapter()
+
+    companion object {
+
+        fun instanciate(parentNavigator: MainContract.Navigation): TaskFragment {
+
+            val fragment = TaskFragment()
+            fragment.parentNavigator = parentNavigator
+            return fragment
+
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,7 +106,7 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
 
     override fun onTaskClick(taskId: Int) {
 
-        parentRouter.goToDetail(taskId)
+        parentNavigator.goToDetail(taskId)
 
     }
 

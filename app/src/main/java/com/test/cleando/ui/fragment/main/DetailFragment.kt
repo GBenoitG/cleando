@@ -11,7 +11,6 @@ import com.test.cleando.contract.main.detail.DetailContract
 import com.test.cleando.model.task.Status
 import com.test.cleando.model.task.TaskModel
 import com.test.cleando.tool.Extra
-import com.test.cleando.tool.Injector
 import com.test.cleando.ui.fragment.BaseFragment
 import com.test.cleando.ui.widget.TaskImageButton
 import kotlinx.android.synthetic.main.adapter_task.*
@@ -23,11 +22,24 @@ import kotlinx.android.synthetic.main.framgent_detail.*
 class DetailFragment : BaseFragment(), DetailContract.Controller, View.OnFocusChangeListener, View.OnClickListener, TaskImageButton.ButtonTaskListener {
 
     lateinit var output: DetailContract.Interactor
-    lateinit var parentRouter: MainContract.Router
+    lateinit var parentNavigator: MainContract.Navigation
 
     lateinit var menu: Menu
 
     var taskId: Int = 0
+
+    companion object {
+
+        fun instanciate(parentNavigator: MainContract.Navigation, taskId: Int): DetailFragment {
+
+            val fragment = DetailFragment()
+            fragment.parentNavigator = parentNavigator
+            fragment.taskId = taskId
+            return fragment
+
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +84,7 @@ class DetailFragment : BaseFragment(), DetailContract.Controller, View.OnFocusCh
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item?.itemId) {
-            android.R.id.home -> parentRouter.goToList()
+            android.R.id.home -> parentNavigator.goToList()
             R.id.app_bar_edit -> {
                 if (item.title == Extra.SAVE) {
                     setOptionButtonEdit()

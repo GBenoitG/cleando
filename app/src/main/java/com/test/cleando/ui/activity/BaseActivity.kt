@@ -1,12 +1,16 @@
 package com.test.cleando.ui.activity
 
+import android.content.Intent
+import android.os.Build
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AppCompatActivity
+import com.test.cleando.tool.router.Navigator
 import com.test.cleando.ui.fragment.BaseFragment
 
 /**
  * Created by Benoit on 20/06/2017.
  */
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity(), Navigator.Router {
 
     protected fun showFragment(containerId: Int, fragment: BaseFragment) {
 
@@ -34,7 +38,27 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
-    open fun performFragmentTransaction(fragment: BaseFragment) {}
+    override fun getRouterActivity(): AppCompatActivity = this
 
-    open fun performFragmentTransaction(fragment: BaseFragment, extra: Map<String, Any>? = null) {}
+    override fun startActivity(intent: Intent, requestCode: Int?, options: ActivityOptionsCompat?) {
+
+        if (requestCode != null) {
+
+            if (options != null && Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
+                super.startActivityForResult(intent, requestCode, options.toBundle())
+            } else {
+                super.startActivityForResult(intent, requestCode)
+            }
+
+        } else {
+
+            if (options != null && Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
+                super.startActivity(intent, options.toBundle())
+            } else {
+                super.startActivity(intent)
+            }
+
+        }
+
+    }
 }
