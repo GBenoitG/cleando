@@ -40,11 +40,16 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile "com.android.support:recyclerview-v7:25.3.1"
     testCompile 'junit:junit:4.12'
+    testCompile "org.jmockit:jmockit:1.31"
+    testCompile 'org.mockito:mockito-core:2.7.22'
+    // required if you want to use Mockito for Android tests
+    androidTestCompile 'org.mockito:mockito-android:2.7.22'
 
 //  Dagger2
-//    compile 'com.google.dagger:dagger:2.11'
-//    kapt 'com.google.dagger:dagger-compiler:2.11'
-//    provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.google.dagger:dagger:2.11'
+    kapt 'com.google.dagger:dagger-compiler:2.11'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 }
 repositories {
     mavenCentral()

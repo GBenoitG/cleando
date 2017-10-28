@@ -1,6 +1,7 @@
 package com.test.cleando.contract.main.tasks
 
 import com.test.cleando.R
+import com.test.cleando.model.task.TaskModel
 import com.test.cleando.worker.TaskWorker
 
 class TaskInteractor : TaskContract.Interactor() {
@@ -25,16 +26,12 @@ class TaskInteractor : TaskContract.Interactor() {
 
         tasks = TaskWorker.getTasks(select)
 
-        howToPresent()
-
-    }
-
-    private fun howToPresent() {
         if (tasks.isNotEmpty()) {
             output.presentTasks(TaskContract.Task.Response(tasks))
         } else {
             output.presentNoData(R.string.nodata)
         }
+
     }
 
     override fun updateTask(request: TaskContract.Task.Request) {

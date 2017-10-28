@@ -16,12 +16,14 @@ class DummyLocalTaskModule : LocalTaskModule {
     var tasks = arrayListOf<TaskModel>()
 
     override fun addOrUpdateTask(taskModel: TaskModel) {
-        if (!tasks.contains(taskModel)) {
+        if (tasks.filter { task -> task.id == taskModel.id }.isEmpty()) {
+            if (taskModel.id == -1) {
+                taskModel.id = getMaxId() + 1
+            }
             tasks.add(taskModel)
         } else {
-            val index = tasks.indexOf(taskModel)
-            tasks.removeAt(index)
-            tasks.add(index, taskModel)
+            val index = tasks.indexOf(tasks.find { task -> task.id == taskModel.id })
+            tasks[index] = taskModel
         }
     }
 
