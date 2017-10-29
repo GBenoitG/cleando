@@ -31,9 +31,10 @@ class MainActivity : BaseActivity(), MainContract.Navigation {
 
     override fun onBackPressed() {
 
-        when (getCurrentFragment(R.id.container)) {
-            TaskFragment() -> super.onBackPressed()
-            DetailFragment() -> goToList()
+        if (getCurrentFragment(R.id.container) is DetailFragment) {
+            goToList()
+        } else {
+            super.onBackPressed()
         }
 
     }
