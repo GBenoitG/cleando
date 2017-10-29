@@ -3,12 +3,9 @@ package com.test.cleando.contract.main.tasks
 import com.test.cleando.R
 import com.test.cleando.model.task.TaskModel
 import com.test.cleando.worker.TaskWorker
+import java.util.*
 
 class TaskInteractor : TaskContract.Interactor() {
-
-    init {
-        tasks = listOf()
-    }
 
     override fun addTask(request: TaskContract.Task.Request) {
 
@@ -24,9 +21,9 @@ class TaskInteractor : TaskContract.Interactor() {
 
         val select = request.select
 
-        tasks = TaskWorker.getTasks(select)
+        val tasks: List<TaskModel> = TaskWorker.getTasks(select)
 
-        if (tasks.isNotEmpty()) {
+        if (!tasks.isEmpty()) {
             output.presentTasks(TaskContract.Task.Response(tasks))
         } else {
             output.presentNoData(R.string.nodata)
