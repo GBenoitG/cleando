@@ -48,8 +48,6 @@ class DetailFragment : BaseFragment(), DetailContract.Controller, View.OnFocusCh
 
         setHasOptionsMenu(true)
 
-        taskId = arguments.get(Extra.TASK_ID) as Int
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
