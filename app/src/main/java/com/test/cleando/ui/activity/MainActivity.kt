@@ -19,7 +19,7 @@ class MainActivity : BaseActivity(), MainContract.Navigation {
 
     override fun goToList() {
 
-        showFragment(R.id.container, TaskFragment())
+        showFragment(R.id.container, TaskFragment.instanciate(this))
 
     }
 
