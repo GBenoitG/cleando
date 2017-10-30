@@ -13,6 +13,9 @@ import com.test.cleando.ui.adapter.TaskAdapter
 import com.test.cleando.ui.adapter.TaskAdapterDelegate
 import com.test.cleando.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_tasks.*
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.RecyclerView
+
 
 /**
  * Created by Benoit on 20/06/2017.
@@ -51,6 +54,10 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val dividerItemDecoration = DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL)
+        dividerItemDecoration.setDrawable(activity.resources.getDrawable(R.drawable.separator_normal))
+        listView.addItemDecoration(dividerItemDecoration)
 
         listView.layoutManager = LinearLayoutManager(activity)
         listView.adapter = taskAdater
