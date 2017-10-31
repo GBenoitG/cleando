@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'realm-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 25
@@ -25,24 +25,35 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
 }
 
 kapt {
-    generateStubs = true
+//    generateStubs = true
+}
+
+ext {
+    androidSupportVersion = "25.3.1"
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+//  Android Support
+    compile "com.android.support:appcompat-v7:$androidSupportVersion"
+    compile "com.android.support:support-core-utils:$androidSupportVersion"
+    compile "com.android.support:support-v13:$androidSupportVersion"
+    compile "com.android.support:design:$androidSupportVersion"
+
+//  Kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+//    Test
+    testCompile 'junit:junit:4.12'
+    testCompile "org.jmockit:jmockit:1.31"
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile "com.android.support:cardview-v7:25.3.1"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile "com.android.support:recyclerview-v7:25.3.1"
-    testCompile 'junit:junit:4.12'
-    testCompile "org.jmockit:jmockit:1.31"
     testCompile 'org.mockito:mockito-core:2.7.22'
     // required if you want to use Mockito for Android tests
     androidTestCompile 'org.mockito:mockito-android:2.7.22'
@@ -52,7 +63,9 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.11'
     provided 'org.glassfish:javax.annotation:10.0-b28'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+
 }
+
 repositories {
     mavenCentral()
     maven {
