@@ -33,13 +33,14 @@ object TaskWorker {
 
         val task = taskModule.getTask(taskId)
 
-        task.status = if (isDone) Status.CLOSE else Status.OPEN
-
-        taskModule.addOrUpdateTask(task)
+        if (task != null) {
+            task.status = if (isDone) Status.CLOSE else Status.OPEN
+            taskModule.addOrUpdateTask(task)
+        }
 
     }
 
-    fun getTask(taskId: Int): TaskModel {
+    fun getTask(taskId: Int): TaskModel? {
         return taskModule.getTask(taskId)
     }
 

@@ -52,7 +52,7 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
         return inflater.inflate(R.layout.fragment_tasks, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val dividerItemDecoration = DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL)

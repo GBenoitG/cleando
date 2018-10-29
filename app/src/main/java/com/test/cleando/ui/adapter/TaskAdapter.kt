@@ -28,7 +28,7 @@ class TaskAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
         if (holder is TaskViewHolder) {
             holder.bindTask(data[position])
