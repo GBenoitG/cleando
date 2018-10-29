@@ -27,8 +27,8 @@ class RealmLocalTaskModule : LocalTaskModule {
         }
     }
 
-    override fun getTask(taskId: Int): TaskModel {
-        return query.equalTo(RealmTask.ID, taskId).findFirst().fromRealm()
+    override fun getTask(taskId: Int): TaskModel? {
+        return query.equalTo(RealmTask.ID, taskId).findFirst()?.fromRealm()
     }
 
     override fun getTasks(): List<TaskModel> {

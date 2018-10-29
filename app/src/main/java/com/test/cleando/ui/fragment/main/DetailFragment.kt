@@ -54,7 +54,7 @@ class DetailFragment : BaseFragment(), DetailContract.Controller, View.OnFocusCh
         return inflater.inflate(R.layout.framgent_detail, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         output.getTask(DetailContract.Task.Request(taskId))

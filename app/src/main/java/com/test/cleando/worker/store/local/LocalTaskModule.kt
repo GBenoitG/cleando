@@ -9,7 +9,7 @@ interface LocalTaskModule {
 
     fun addOrUpdateTask(taskModel: TaskModel)
 
-    fun getTask(taskId: Int): TaskModel
+    fun getTask(taskId: Int): TaskModel?
 
     fun getTasks(): List<TaskModel>
 
