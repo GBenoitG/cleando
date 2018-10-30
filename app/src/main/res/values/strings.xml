@@ -3,7 +3,7 @@
     <string name="app_name">CleanDo</string>
     <string name="actionbar_all_task">All Tasks</string>
     
-    <string name="nodata">Aucune donnée à afficher</string>
+    <string name="nodata">Nothing to display here!</string>
     
     <string name="title">Title</string>
     <string name="description">Description</string>
