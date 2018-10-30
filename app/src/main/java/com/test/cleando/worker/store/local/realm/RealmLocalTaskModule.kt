@@ -7,6 +7,7 @@ import com.test.cleando.worker.store.local.realm.model.RealmTask
 import io.realm.Realm
 import io.realm.RealmQuery
 import io.realm.RealmResults
+import io.realm.Sort
 
 /**
  * Created by Benoit on 21/06/2017.
@@ -32,15 +33,15 @@ class RealmLocalTaskModule : LocalTaskModule {
     }
 
     override fun getTasks(): List<TaskModel> {
-        return query.findAll().fromRealm()
+        return query.sort(RealmTask.ID, Sort.DESCENDING).findAll().fromRealm()
     }
 
     override fun getOpenedTasks(): List<TaskModel> {
-        return query.equalTo(RealmTask.IS_DONE, false).findAll().fromRealm()
+        return query.equalTo(RealmTask.IS_DONE, false).sort(RealmTask.ID, Sort.DESCENDING).findAll().fromRealm()
     }
 
     override fun getClosedTasks(): List<TaskModel> {
-        return query.equalTo(RealmTask.IS_DONE, true).findAll().fromRealm()
+        return query.equalTo(RealmTask.IS_DONE, true).sort(RealmTask.ID, Sort.DESCENDING).findAll().fromRealm()
     }
 
     override fun getMaxId(): Int {
