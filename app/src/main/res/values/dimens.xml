@@ -10,6 +10,17 @@
     <!--Text size-->
     <dimen name="textsize_medium">15sp</dimen>
     <dimen name="textsize_big">32sp</dimen>
+
+    <!--Radius-->
+    <dimen name="radius_regular">4dp</dimen>
+    <dimen name="radius_normal">8dp</dimen>
+
+    <!--Padding sized-->
+    <dimen name="padding_size_little">4dp</dimen>
+    <dimen name="padding_size_regular">8dp</dimen>
+    <dimen name="padding_size_normal">16dp</dimen>
+    <dimen name="padding_size_big">24dp</dimen>
+    <dimen name="padding_size_bigger">32dp</dimen>
     
     <dimen name="margin_size_normal">16dp</dimen>
     
