@@ -48,6 +48,9 @@ class DetailFragment : BaseFragment(), DetailContract.Controller, View.OnFocusCh
 
         setHasOptionsMenu(true)
 
+        activity.supportActionBar?.title = getString(R.string.title_task_details)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
