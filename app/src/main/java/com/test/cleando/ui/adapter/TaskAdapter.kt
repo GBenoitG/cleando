@@ -46,6 +46,8 @@ class TaskAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         data.addAll(tasks)
 
+        notifyDataSetChanged()
+
     }
 
 }
