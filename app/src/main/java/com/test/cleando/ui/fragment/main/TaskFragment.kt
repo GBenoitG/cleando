@@ -46,6 +46,9 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
 
         setHasOptionsMenu(true)
 
+        activity.supportActionBar?.title = getString(R.string.title_task_list)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
