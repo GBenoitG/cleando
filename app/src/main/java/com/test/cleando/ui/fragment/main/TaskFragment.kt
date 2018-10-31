@@ -1,6 +1,7 @@
 package com.test.cleando.ui.fragment.main
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.test.cleando.R
@@ -12,9 +13,8 @@ import com.test.cleando.model.task.TaskModel
 import com.test.cleando.ui.adapter.TaskAdapter
 import com.test.cleando.ui.adapter.TaskAdapterDelegate
 import com.test.cleando.ui.fragment.BaseFragment
+import com.test.cleando.ui.widget.TaskCreatorSheet
 import kotlinx.android.synthetic.main.fragment_tasks.*
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.RecyclerView
 
 
 /**
@@ -90,9 +90,14 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
 
     private fun generateTask() {
 
-        var task = TaskModel("Task", "", Status.OPEN)
+        TaskCreatorSheet.instantiate(object : TaskCreatorSheet.TaskCreatorCallback {
+            override fun onConfirm(task: TaskModel) {
+                output.addTask(TaskContract.Task.Request(task))
+            }
 
-        output.addTask(TaskContract.Task.Request(task))
+            override fun onCancel() {
+            }
+        }).show(activity.supportFragmentManager, "taskcreator")
 
     }
 
