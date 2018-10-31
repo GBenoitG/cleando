@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
         
-        <com.test.cleando.ui.widget.TaskImageButton
+        <com.bendev.cleando.ui.widget.TaskImageButton
             android:id="@+id/taskButton"
             android:layout_width="@dimen/icon_size_big"
             android:layout_height="@dimen/icon_size_big"/>
