@@ -53,14 +53,14 @@ class TaskContract {
     abstract class Presenter : BasePresenter<Controller>() {
 
         abstract fun presentTasks(response: Task.Response)
-        abstract fun presentNoData(error: Int)
+        abstract fun presentNoData()
 
     }
 
     interface Controller : BaseController {
 
         fun showTasks(tasks: List<Task.ViewModel>)
-        fun showErrorNoData(errorRes: Int)
+        fun showErrorNoData()
 
     }
 
