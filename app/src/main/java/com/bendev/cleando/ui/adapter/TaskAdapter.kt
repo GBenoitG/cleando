@@ -1,9 +1,9 @@
 package com.bendev.cleando.ui.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.bendev.cleando.contract.main.tasks.TaskContract
 import com.bendev.cleando.ui.adapter.viewholder.TaskViewHolder
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Created by Benoit on 22/06/2017.

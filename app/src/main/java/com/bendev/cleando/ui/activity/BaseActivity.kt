@@ -2,10 +2,10 @@ package com.bendev.cleando.ui.activity
 
 import android.content.Intent
 import android.os.Build
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v7.app.AppCompatActivity
 import com.bendev.cleando.tool.router.Navigator
 import com.bendev.cleando.ui.fragment.BaseFragment
+import androidx.core.app.ActivityOptionsCompat
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * Created by Benoit on 20/06/2017.

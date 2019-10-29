@@ -4,13 +4,13 @@ import android.app.Dialog
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
-import android.support.design.widget.BottomSheetDialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bendev.cleando.R
 import com.bendev.cleando.model.task.Status
 import com.bendev.cleando.model.task.TaskModel
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.sheet_task_creator.*
 
 class TaskCreatorSheet : BottomSheetDialogFragment(), View.OnClickListener {
