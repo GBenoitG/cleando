@@ -14,7 +14,7 @@ class TaskViewHolder(parent: ViewGroup) : BaseViewHolder(parent, R.layout.adapte
 
     var task: TaskContract.Task.ViewModel? = null
 
-    fun bindTask(task: TaskContract.Task.ViewModel) {
+    fun bindTask(task: TaskContract.Task.ViewModel) : TaskViewHolder{
 
         this.task = task
 
@@ -26,6 +26,7 @@ class TaskViewHolder(parent: ViewGroup) : BaseViewHolder(parent, R.layout.adapte
 
         }
 
+        return this
     }
 
     fun listenTaskClick(action: ((Int) -> Unit)): TaskViewHolder {
