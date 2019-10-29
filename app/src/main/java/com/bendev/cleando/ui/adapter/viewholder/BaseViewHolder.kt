@@ -1,7 +1,7 @@
 package com.bendev.cleando.ui.adapter.viewholder
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Created by Benoit on 22/06/2017.

@@ -1,8 +1,6 @@
 package com.bendev.cleando.ui.fragment.main
 
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.bendev.cleando.R
 import com.bendev.cleando.contract.main.MainContract
@@ -14,6 +12,8 @@ import com.bendev.cleando.ui.adapter.TaskAdapter
 import com.bendev.cleando.ui.adapter.TaskAdapterDelegate
 import com.bendev.cleando.ui.fragment.BaseFragment
 import com.bendev.cleando.ui.widget.TaskCreatorSheet
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_tasks.*
 
 

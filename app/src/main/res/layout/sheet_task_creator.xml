@@ -37,14 +37,14 @@
         android:orientation="vertical"
         android:padding="@dimen/padding_size_normal">
         
-        <android.support.v7.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/taskCreator_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/task_name_hint"
             android:textSize="18sp"/>
     
-        <android.support.v7.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/taskCreator_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
