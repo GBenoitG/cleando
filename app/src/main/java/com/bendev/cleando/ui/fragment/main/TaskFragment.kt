@@ -105,17 +105,11 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
 
         taskAdater.setTasks(tasks)
 
-        errorLayout.visibility = View.GONE
-
     }
 
     override fun showErrorNoData(errorRes: Int) {
 
-        listView.visibility = View.GONE
-
-        errorLayout.visibility = View.VISIBLE
-
-        textError.text = resources.getText(errorRes)
+        taskAdater.setNoData()
 
     }
 
