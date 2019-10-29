@@ -10,9 +10,9 @@ class TaskPresenter : TaskContract.Presenter() {
 
     }
 
-    override fun presentNoData(error: Int) {
+    override fun presentNoData() {
 
-        output.showErrorNoData(error)
+        output.showErrorNoData()
 
     }
 

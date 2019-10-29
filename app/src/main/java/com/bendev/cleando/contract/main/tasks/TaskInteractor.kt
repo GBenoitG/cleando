@@ -23,10 +23,10 @@ class TaskInteractor : TaskContract.Interactor() {
 
         val tasks: List<TaskModel> = TaskWorker.getTasks(select)
 
-        if (!tasks.isEmpty()) {
+        if (tasks.isNotEmpty()) {
             output.presentTasks(TaskContract.Task.Response(tasks))
         } else {
-            output.presentNoData(R.string.nodata)
+            output.presentNoData()
         }
 
     }

@@ -107,7 +107,7 @@ open class TaskFragment : BaseFragment(), TaskContract.Controller, TaskAdapterDe
 
     }
 
-    override fun showErrorNoData(errorRes: Int) {
+    override fun showErrorNoData() {
 
         taskAdater.setNoData()
 
